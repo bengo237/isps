@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cap Sûreté | Faire une demande</title>
+  <meta name="description" content="Préparez votre demande en trois étapes : besoin, installation, coordonnées.">
+  <meta name="theme-color" content="#0F2D46">
+  <!-- Maquette : retirer la ligne suivante pour autoriser l'indexation -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; base-uri 'self'; object-src 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/vigie.css">
+</head>
+<body data-page="demande">
+  <a class="skip" href="#contenu">Aller au contenu</a>
+  <p class="demo-note">Maquette de démonstration : les noms et profils de l'équipe sont fictifs.</p>
+
+  <header class="hd">
+    <div class="wrap hd__bar">
+      <a class="brand" href="index.html" aria-label="Cap Sûreté, accueil">
+        <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true"><rect class="bm-a" x="1" y="1" width="30" height="30" rx="3"/><rect class="bm-b" x="1" y="1" width="30" height="7" rx="3"/><path class="bm-c" d="M9 13v13M16 13v13M23 13v13"/></svg>
+        <span>Cap Sûreté</span>
+      </a>
+      <nav class="nav" id="nav" aria-label="Navigation principale">
+        <a href="index.html#explorer">Explorer</a>
+        <a href="formations.html">Formations</a>
+        <a href="equipe.html">Équipe</a>
+        <a class="nav__cta" href="demande.html">Faire une demande <span class="count" data-cart-count hidden></span></a>
+      </nav>
+      <div class="hd__tools">
+        <div class="rolepick">
+          <button class="rolepick__btn" id="role-btn" type="button" aria-expanded="false" aria-controls="role-menu">Profil : <strong data-role-label>à choisir</strong></button>
+          <div class="rolepick__menu" id="role-menu" hidden></div>
+        </div>
+        <button class="nav-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <section class="pagehead" aria-labelledby="h-page">
+      <div class="wrap">
+        <h1 id="h-page">Faire une demande</h1>
+        <p class="lead">Trois étapes, environ deux minutes. Nous revenons vers vous avec une proposition adaptée.</p>
+      </div>
+    </section>
+
+    <section class="sec sec--tight">
+      <div class="wrap wiz">
+        <ol class="wiz__steps" aria-label="Étapes de la demande">
+          <li data-step-ind="1" aria-current="step"><span>1</span>Votre besoin</li>
+          <li data-step-ind="2"><span>2</span>Votre installation</li>
+          <li data-step-ind="3"><span>3</span>Vos coordonnées</li>
+        </ol>
+
+        <form class="wiz__form" id="wiz" novalidate>
+          <fieldset class="wiz__panel" data-step="1">
+            <legend>De quoi avez-vous besoin ?</legend>
+            <p class="hint">Plusieurs choix possibles.</p>
+            <div class="needs" id="needs"></div>
+            <div class="picked" id="picked"></div>
+          </fieldset>
+
+          <fieldset class="wiz__panel" data-step="2" hidden>
+            <legend>Votre installation</legend>
+            <div class="grid2">
+              <label class="field"><span>Type</span>
+                <select name="type" required>
+                  <option value="">Choisir</option>
+                  <option>Port ou terminal</option>
+                  <option>Terminal pétrolier, gazier ou raffinerie</option>
+                  <option>Base logistique ou installation offshore</option>
+                  <option>Compagnie maritime ou armateur</option>
+                  <option>Autre</option>
+                </select>
+              </label>
+              <label class="field"><span>Ville ou site</span><input name="site" type="text" autocomplete="address-level2"></label>
+              <label class="field"><span>Personnes à former <em>(si formation)</em></span>
+                <select name="effectif">
+                  <option value="">Choisir</option>
+                  <option>Moins de 10</option>
+                  <option>10 à 30</option>
+                  <option>30 à 100</option>
+                  <option>Plus de 100</option>
+                </select>
+              </label>
+              <label class="field"><span>Échéance</span>
+                <select name="echeance">
+                  <option value="">Choisir</option>
+                  <option>Urgent, moins d'un mois</option>
+                  <option>Dans les 3 mois</option>
+                  <option>Dans l'année</option>
+                  <option>Pas d'échéance précise</option>
+                </select>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="wiz__panel" data-step="3" hidden>
+            <legend>Vos coordonnées</legend>
+            <div class="grid2">
+              <label class="field"><span>Nom</span><input name="nom" type="text" autocomplete="name" required></label>
+              <label class="field"><span>Fonction</span><input name="fonction" type="text" autocomplete="organization-title"></label>
+              <label class="field"><span>Organisation</span><input name="organisation" type="text" autocomplete="organization" required></label>
+              <label class="field"><span>E-mail</span><input name="email" type="email" autocomplete="email" required></label>
+              <label class="field"><span>Téléphone <em>(facultatif)</em></span><input name="tel" type="tel" autocomplete="tel"></label>
+            </div>
+            <label class="field"><span>Précisions <em>(facultatif)</em></span><textarea name="message" rows="4"></textarea></label>
+          </fieldset>
+
+          <div class="wiz__done" id="wiz-done" hidden tabindex="-1">
+            <h2>Votre demande est prête</h2>
+            <p>Vérifiez le récapitulatif, puis envoyez-le depuis votre messagerie.</p>
+            <pre class="recap" id="recap"></pre>
+            <div class="wiz__nav">
+              <button class="btn btn--line" type="button" id="wiz-edit">Modifier</button>
+              <a class="btn" id="wiz-send" href="#">Ouvrir ma messagerie</a>
+            </div>
+            <p class="hint">Ce site n'enregistre aucune donnée. Votre messagerie s'ouvre avec le message prérempli.</p>
+          </div>
+
+          <p class="err" id="wiz-err" role="alert" hidden></p>
+          <div class="wiz__nav" id="wiz-nav">
+            <button class="btn btn--line" type="button" id="wiz-back" hidden>Retour</button>
+            <button class="btn" type="submit" id="wiz-next">Continuer</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ft">
+    <div class="wrap ft__in">
+      <p class="ft__brand">Cap Sûreté</p>
+      <nav aria-label="Pied de page"><a href="formations.html">Formations</a><a href="equipe.html">Équipe</a><a href="demande.html">Demande</a><a href="mentions-legales.html">Mentions légales</a></nav>
+      <p class="ft__legal">© <span data-year>2026</span> Cap Sûreté. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/data.js" defer></script>
+  <script src="assets/js/vigie.js" defer></script>
+</body>
+</html>

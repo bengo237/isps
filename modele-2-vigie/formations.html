@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cap Sûreté | Formations</title>
+  <meta name="description" content="Catalogue des formations en sûreté portuaire, sûreté des navires, cybersécurité et QSE.">
+  <meta name="theme-color" content="#0F2D46">
+  <!-- Maquette : retirer la ligne suivante pour autoriser l'indexation -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; base-uri 'self'; object-src 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/vigie.css">
+</head>
+<body data-page="formations">
+  <a class="skip" href="#contenu">Aller au contenu</a>
+  <p class="demo-note">Maquette de démonstration : les noms et profils de l'équipe sont fictifs.</p>
+
+  <header class="hd">
+    <div class="wrap hd__bar">
+      <a class="brand" href="index.html" aria-label="Cap Sûreté, accueil">
+        <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true"><rect class="bm-a" x="1" y="1" width="30" height="30" rx="3"/><rect class="bm-b" x="1" y="1" width="30" height="7" rx="3"/><path class="bm-c" d="M9 13v13M16 13v13M23 13v13"/></svg>
+        <span>Cap Sûreté</span>
+      </a>
+      <nav class="nav" id="nav" aria-label="Navigation principale">
+        <a href="index.html#explorer">Explorer</a>
+        <a href="formations.html">Formations</a>
+        <a href="equipe.html">Équipe</a>
+        <a class="nav__cta" href="demande.html">Faire une demande <span class="count" data-cart-count hidden></span></a>
+      </nav>
+      <div class="hd__tools">
+        <div class="rolepick">
+          <button class="rolepick__btn" id="role-btn" type="button" aria-expanded="false" aria-controls="role-menu">Profil : <strong data-role-label>à choisir</strong></button>
+          <div class="rolepick__menu" id="role-menu" hidden></div>
+        </div>
+        <button class="nav-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <section class="pagehead" aria-labelledby="h-page">
+      <div class="wrap">
+        <h1 id="h-page">Formations</h1>
+        <p class="lead">Dix modules, de la sensibilisation de tout le personnel à la formation des agents de sûreté. Ajoutez ceux qui vous intéressent : ils seront repris dans votre demande.</p>
+      </div>
+    </section>
+
+    <section class="sec sec--tight" aria-label="Catalogue">
+      <div class="wrap">
+        <div class="tools">
+          <label class="search">
+            <span class="sr-only">Rechercher une formation</span>
+            <input id="q" type="search" placeholder="Rechercher : PFSO, exercice, fraude..." autocomplete="off">
+          </label>
+          <div class="filters" id="filters" role="group" aria-label="Filtrer par domaine"></div>
+          <button class="toggle" id="for-me" type="button" aria-pressed="false" hidden>Conseillées pour mon profil</button>
+        </div>
+        <p class="results" id="results" role="status"></p>
+        <div class="cards" id="cards"></div>
+        <noscript><p>Le catalogue nécessite JavaScript. Écrivez-nous pour recevoir le programme complet.</p></noscript>
+      </div>
+    </section>
+
+    <dialog class="dlg" id="dlg" aria-labelledby="dlg-title">
+      <div class="dlg__in">
+        <div class="dlg__top">
+          <p class="tag" id="dlg-tag"></p>
+          <button class="dlg__close" type="button" data-close>Fermer</button>
+        </div>
+        <h2 id="dlg-title"></h2>
+        <dl class="meta" id="dlg-meta"></dl>
+        <div class="dlg__cols">
+          <div><h3>Objectifs</h3><ul id="dlg-goals"></ul></div>
+          <div><h3>Programme</h3><ul id="dlg-prog"></ul></div>
+        </div>
+        <div class="dlg__end">
+          <button class="btn" type="button" id="dlg-add">Ajouter à ma demande</button>
+          <p class="dlg__note">Durée et programme ajustables à votre installation.</p>
+        </div>
+      </div>
+    </dialog>
+
+    <div class="tray" id="tray" hidden>
+      <div class="wrap tray__in">
+        <p id="tray-text"></p>
+        <div class="tray__act">
+          <button class="linkbtn" type="button" id="tray-clear">Vider</button>
+          <a class="btn btn--sm" href="demande.html">Préparer la demande</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="ft">
+    <div class="wrap ft__in">
+      <p class="ft__brand">Cap Sûreté</p>
+      <nav aria-label="Pied de page"><a href="formations.html">Formations</a><a href="equipe.html">Équipe</a><a href="demande.html">Demande</a><a href="mentions-legales.html">Mentions légales</a></nav>
+      <p class="ft__legal">© <span data-year>2026</span> Cap Sûreté. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/data.js" defer></script>
+  <script src="assets/js/vigie.js" defer></script>
+</body>
+</html>

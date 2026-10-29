@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cap Sûreté | Sûreté portuaire et maritime</title>
+  <meta name="description" content="Formation, conseil et cybersécurité pour les installations portuaires et les compagnies maritimes. Explorez une installation, consultez le catalogue des formations et préparez votre demande.">
+  <meta name="theme-color" content="#0F2D46">
+  <!-- Maquette : retirer la ligne suivante pour autoriser l'indexation -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; base-uri 'self'; object-src 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="Cap Sûreté | Sûreté portuaire et maritime">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/vigie.css">
+</head>
+<body data-page="accueil">
+  <a class="skip" href="#contenu">Aller au contenu</a>
+  <p class="demo-note">Maquette de démonstration : les noms et profils de l'équipe sont fictifs.</p>
+
+  <header class="hd">
+    <div class="wrap hd__bar">
+      <a class="brand" href="index.html" aria-label="Cap Sûreté, accueil">
+        <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true"><rect class="bm-a" x="1" y="1" width="30" height="30" rx="3"/><rect class="bm-b" x="1" y="1" width="30" height="7" rx="3"/><path class="bm-c" d="M9 13v13M16 13v13M23 13v13"/></svg>
+        <span>Cap Sûreté</span>
+      </a>
+      <nav class="nav" id="nav" aria-label="Navigation principale">
+        <a href="index.html#explorer">Explorer</a>
+        <a href="formations.html">Formations</a>
+        <a href="equipe.html">Équipe</a>
+        <a class="nav__cta" href="demande.html">Faire une demande <span class="count" data-cart-count hidden></span></a>
+      </nav>
+      <div class="hd__tools">
+        <div class="rolepick">
+          <button class="rolepick__btn" id="role-btn" type="button" aria-expanded="false" aria-controls="role-menu">Profil : <strong data-role-label>à choisir</strong></button>
+          <div class="rolepick__menu" id="role-menu" hidden></div>
+        </div>
+        <button class="nav-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <!-- ============ ACCUEIL PAR PROFIL ============ -->
+    <section class="intro" aria-labelledby="h-intro">
+      <div class="wrap">
+        <h1 id="h-intro">La sûreté d'un port se joue à chaque poste.</h1>
+        <p class="lead">Formation, conseil et cybersécurité pour les installations portuaires et les compagnies maritimes. Dites-nous qui vous êtes : nous vous montrons par où commencer.</p>
+
+        <div class="roles" role="group" aria-label="Choisir votre profil">
+          <button class="role" type="button" data-role="direction"><span class="role__t">Direction d'installation</span><span class="role__d">Port, terminal, raffinerie, base offshore</span></button>
+          <button class="role" type="button" data-role="surete"><span class="role__t">PFSO et équipes de sûreté</span><span class="role__d">Agents, chefs de poste, contrôle d'accès</span></button>
+          <button class="role" type="button" data-role="compagnie"><span class="role__t">Compagnie maritime</span><span class="role__d">Armateurs, CSO, commandants</span></button>
+          <button class="role" type="button" data-role="cyber"><span class="role__t">Informatique et cybersécurité</span><span class="role__d">DSI, RSSI, responsables réseau</span></button>
+        </div>
+
+        <div class="foryou" id="foryou" hidden></div>
+      </div>
+    </section>
+
+    <!-- ============ EXPLORATEUR ============ -->
+    <section class="explorer" id="explorer" aria-labelledby="h-explorer">
+      <div class="wrap">
+        <div class="ex__head">
+          <h2 id="h-explorer">Explorez une installation portuaire</h2>
+          <p>Sélectionnez un point du plan, puis un niveau de sûreté. Vous voyez ce que le code ISPS demande et comment nous vous aidons.</p>
+        </div>
+
+        <div class="ex__grid">
+          <div class="ex__map">
+            <div class="lvls" role="radiogroup" aria-label="Niveau de sûreté">
+              <label class="lvls__opt lvls__opt--1"><input type="radio" name="lvl" value="1" checked><span>Niveau 1</span><small>Normal</small></label>
+              <label class="lvls__opt lvls__opt--2"><input type="radio" name="lvl" value="2"><span>Niveau 2</span><small>Renforcé</small></label>
+              <label class="lvls__opt lvls__opt--3"><input type="radio" name="lvl" value="3"><span>Niveau 3</span><small>Exceptionnel</small></label>
+            </div>
+
+            <div class="plan" id="plan" data-level="1">
+              <svg viewBox="0 0 800 500" role="img" aria-labelledby="plan-t">
+                <title id="plan-t">Plan schématique d'une installation portuaire avec poste de contrôle, salle informatique, zone d'accès restreint, quai, navire et zone de mouillage</title>
+                <rect class="p-land" x="0" y="0" width="800" height="360"/>
+                <rect class="p-sea" x="0" y="360" width="800" height="140"/>
+                <path class="p-wave" d="M40 470 q12 -8 24 0 t24 0 t24 0 M330 455 q12 -8 24 0 t24 0 t24 0 M600 480 q12 -8 24 0 t24 0 t24 0"/>
+                <line class="p-quay" x1="0" y1="360" x2="800" y2="360"/>
+                <path class="p-road" d="M20 236 H190 V325 H780"/>
+                <rect class="p-bldg" x="78" y="48" width="96" height="58" rx="3"/>
+                <rect class="p-bldg" x="210" y="48" width="96" height="58" rx="3"/>
+                <rect class="p-bldg" x="342" y="48" width="140" height="58" rx="3"/>
+                <text class="p-txt" x="126" y="128" text-anchor="middle">Poste de contrôle</text>
+                <text class="p-txt" x="258" y="128" text-anchor="middle">Informatique</text>
+                <text class="p-txt" x="412" y="128" text-anchor="middle">Bureaux</text>
+                <g class="p-box">
+                  <rect x="352" y="168" width="34" height="20"/><rect x="390" y="168" width="34" height="20"/><rect x="428" y="168" width="34" height="20"/><rect x="466" y="168" width="34" height="20"/><rect x="532" y="168" width="34" height="20"/><rect x="570" y="168" width="34" height="20"/><rect x="608" y="168" width="34" height="20"/><rect x="646" y="168" width="34" height="20"/><rect x="684" y="168" width="34" height="20"/>
+                  <rect x="352" y="194" width="34" height="20"/><rect x="390" y="194" width="34" height="20"/><rect x="428" y="194" width="34" height="20"/><rect x="466" y="194" width="34" height="20"/><rect x="532" y="194" width="34" height="20"/><rect x="570" y="194" width="34" height="20"/><rect x="608" y="194" width="34" height="20"/><rect x="646" y="194" width="34" height="20"/><rect x="684" y="194" width="34" height="20"/>
+                  <rect x="352" y="250" width="34" height="20"/><rect x="390" y="250" width="34" height="20"/><rect x="428" y="250" width="34" height="20"/><rect x="532" y="250" width="34" height="20"/><rect x="570" y="250" width="34" height="20"/><rect x="608" y="250" width="34" height="20"/><rect x="646" y="250" width="34" height="20"/>
+                </g>
+                <rect class="p-zone" x="336" y="150" width="400" height="140" rx="3"/>
+                <rect class="p-zone p-zone--2" x="60" y="34" width="700" height="280" rx="3"/>
+                <path class="p-fence" d="M20 360 V20 H780 V360 M20 212 V20 M20 260 V360"/>
+                <rect class="p-gate" x="20" y="232" width="48" height="6" rx="1"/>
+                <text class="p-txt" x="34" y="290">Portail</text>
+                <path class="p-ship" d="M420 372 H730 Q772 372 778 400 Q772 428 730 428 H420 Z"/>
+                <rect class="p-deck" x="434" y="382" width="46" height="36" rx="2"/>
+                <g class="p-box"><rect x="494" y="386" width="40" height="28"/><rect x="540" y="386" width="40" height="28"/><rect x="586" y="386" width="40" height="28"/><rect x="632" y="386" width="40" height="28"/><rect x="678" y="386" width="40" height="28"/></g>
+                <line class="p-gangway" x1="457" y1="360" x2="457" y2="382"/>
+                <path class="p-x" d="M447 362 l20 18 M467 362 l-20 18"/>
+                <text class="p-txt" x="790" y="352" text-anchor="end">Quai</text>
+                <circle class="p-moor" cx="176" cy="440" r="34"/>
+                <text class="p-txt" x="176" y="494" text-anchor="middle">Mouillage</text>
+                <g class="p-l2">
+                  <path class="p-boat" d="M300 420 l34 -10 v20 z"/>
+                  <circle class="p-dot" cx="780" cy="140" r="6"/><circle class="p-dot" cx="300" cy="20" r="6"/><circle class="p-dot" cx="620" cy="325" r="6"/>
+                </g>
+                <g class="p-l3">
+                  <path class="p-boat" d="M600 470 l34 -10 v20 z"/>
+                  <circle class="p-dot" cx="20" cy="320" r="6"/><circle class="p-dot" cx="560" cy="20" r="6"/>
+                  <rect class="p-close" x="20" y="212" width="6" height="48"/>
+                </g>
+                <circle class="p-dot" cx="520" cy="20" r="6"/>
+              </svg>
+              <div class="spots" id="spots"></div>
+            </div>
+            <div class="ex__list" id="spot-list" role="group" aria-label="Points du plan"></div>
+          </div>
+
+          <article class="ex__panel" id="ex-panel" aria-live="polite"></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MÉTHODE ============ -->
+    <section class="sec" aria-labelledby="h-how">
+      <div class="wrap">
+        <div class="sec__head">
+          <h2 id="h-how">Comment nous travaillons</h2>
+          <p>Chaque mission suit le même enchaînement, quelle que soit la taille de l'installation.</p>
+        </div>
+        <ol class="how">
+          <li><h3>Diagnostic sur site</h3><p>Visite, entretiens, revue documentaire et rapport d'écarts.</p></li>
+          <li><h3>Évaluation et plan</h3><p>Évaluation de sûreté, plan, procédures et dossier d'approbation.</p></li>
+          <li><h3>Formation et exercices</h3><p>Agents de sûreté, équipes, scénarios et retour d'expérience.</p></li>
+          <li><h3>Suivi dans la durée</h3><p>Revues, audits internes et veille réglementaire.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ ÉQUIPE ============ -->
+    <section class="sec sec--line" aria-labelledby="h-crew">
+      <div class="wrap crew">
+        <div class="sec__head">
+          <h2 id="h-crew">L'équipe</h2>
+          <p>Sûreté portuaire, navires, droit maritime, analyse de la menace et cybersécurité réunis dans une même équipe.</p>
+          <a class="btn btn--line" href="equipe.html">Voir les parcours et les compétences</a>
+        </div>
+        <ul class="crew__list" id="crew-list"></ul>
+      </div>
+    </section>
+
+    <!-- ============ APPEL ============ -->
+    <section class="cta" aria-labelledby="h-cta">
+      <div class="wrap cta__in">
+        <div>
+          <h2 id="h-cta">Votre demande en trois étapes</h2>
+          <p>Besoin, installation, coordonnées. Les formations que vous avez sélectionnées sont reprises automatiquement.</p>
+        </div>
+        <a class="btn" href="demande.html">Faire une demande</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ft">
+    <div class="wrap ft__in">
+      <p class="ft__brand">Cap Sûreté</p>
+      <nav aria-label="Pied de page"><a href="formations.html">Formations</a><a href="equipe.html">Équipe</a><a href="demande.html">Demande</a><a href="mentions-legales.html">Mentions légales</a></nav>
+      <p class="ft__legal">© <span data-year>2026</span> Cap Sûreté. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/data.js" defer></script>
+  <script src="assets/js/vigie.js" defer></script>
+</body>
+</html>

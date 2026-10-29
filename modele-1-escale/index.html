@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="fr" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cap Sûreté | Conformité ISPS, pas à pas</title>
+  <meta name="description" content="Accompagnement et formation au code ISPS pour les installations portuaires et les compagnies maritimes. Diagnostic en ligne, plan de sûreté, formation des agents de sûreté, exercices et cybersécurité.">
+  <meta name="theme-color" content="#0B6E5B">
+  <!-- Maquette : retirer la ligne suivante pour autoriser l'indexation -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self' mailto:">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="Cap Sûreté | Conformité ISPS, pas à pas">
+  <meta property="og:description" content="Diagnostic ISPS en ligne, plan de sûreté, formation des agents de sûreté, exercices et cybersécurité.">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/escale.css">
+</head>
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+  <p class="demo-note">Maquette de démonstration : les noms et profils de l'équipe sont fictifs.</p>
+
+  <header class="top">
+    <div class="wrap top__bar">
+      <a class="logo" href="#contenu" aria-label="Cap Sûreté, haut de page">
+        <svg class="logo__mark" viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="13"/><path d="M14 6v16M8 12h12M8.5 19.5a7.5 7.5 0 0 0 11 0"/></svg>
+        <span>Cap Sûreté</span>
+      </a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+      <nav id="menu" class="menu" aria-label="Navigation principale">
+        <a href="#diagnostic">Diagnostic</a>
+        <a href="#parcours">Parcours</a>
+        <a href="#services">Services</a>
+        <a href="#equipe">Équipe</a>
+        <a class="menu__cta" href="#contact">Prendre rendez-vous</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+
+    <!-- ============ ACCUEIL ET DIAGNOSTIC ============ -->
+    <section class="hero" id="diagnostic" aria-labelledby="h-hero">
+      <div class="wrap hero__grid">
+        <div class="hero__text">
+          <h1 id="h-hero">La conformité ISPS, pas à pas.</h1>
+          <p class="lead">Nous accompagnons les installations portuaires et les compagnies maritimes, de l'évaluation de sûreté au premier exercice, avec la cybersécurité intégrée dès le départ.</p>
+          <ul class="ticks">
+            <li>Évaluation et plan de sûreté</li>
+            <li>Formation des agents de sûreté et des équipes</li>
+            <li>Exercices, audits et cybersécurité</li>
+          </ul>
+          <p class="hero__hint">Faites le point en six questions. Vous obtenez une estimation de votre niveau de préparation et un plan d'action.</p>
+        </div>
+
+        <div class="diag" id="diag" aria-labelledby="diag-title">
+          <div class="diag__head">
+            <p class="diag__title" id="diag-title">Diagnostic ISPS</p>
+            <p class="diag__count" id="diag-count">6 questions, environ 2 minutes</p>
+          </div>
+          <div class="diag__bar" aria-hidden="true"><span id="diag-progress"></span></div>
+
+          <div class="diag__body" id="diag-body" aria-live="polite">
+            <noscript><p>Le diagnostic nécessite JavaScript. Vous pouvez nous écrire directement depuis la section contact.</p></noscript>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PARCOURS ============ -->
+    <section class="band band--mist" id="parcours" aria-labelledby="h-parcours">
+      <div class="wrap">
+        <div class="head">
+          <h2 id="h-parcours">Six étapes, un livrable à chaque fois</h2>
+          <p>Sélectionnez une étape pour voir ce qu'elle produit, sa durée indicative et qui intervient.</p>
+        </div>
+
+        <div class="steps">
+          <div class="steps__list" role="tablist" aria-label="Étapes du parcours ISPS">
+            <button class="step" role="tab" id="tab-1" aria-controls="panel-1" aria-selected="true"><span class="step__n">1</span><span class="step__t">Cadrage</span></button>
+            <button class="step" role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false" tabindex="-1"><span class="step__n">2</span><span class="step__t">Évaluation</span></button>
+            <button class="step" role="tab" id="tab-3" aria-controls="panel-3" aria-selected="false" tabindex="-1"><span class="step__n">3</span><span class="step__t">Plan de sûreté</span></button>
+            <button class="step" role="tab" id="tab-4" aria-controls="panel-4" aria-selected="false" tabindex="-1"><span class="step__n">4</span><span class="step__t">Formation</span></button>
+            <button class="step" role="tab" id="tab-5" aria-controls="panel-5" aria-selected="false" tabindex="-1"><span class="step__n">5</span><span class="step__t">Exercices</span></button>
+            <button class="step" role="tab" id="tab-6" aria-controls="panel-6" aria-selected="false" tabindex="-1"><span class="step__n">6</span><span class="step__t">Suivi</span></button>
+          </div>
+
+          <div class="panel" role="tabpanel" id="panel-1" aria-labelledby="tab-1" tabindex="0">
+            <h3>Cadrage et état des lieux</h3>
+            <p>Visite de l'installation ou du navire, revue des documents existants et identification des écarts avec le code ISPS et la réglementation nationale.</p>
+            <dl class="facts">
+              <div><dt>Livrable</dt><dd>Rapport d'écarts et feuille de route</dd></div>
+              <div><dt>Durée indicative</dt><dd>1 à 2 semaines</dd></div>
+              <div><dt>Intervenants</dt><dd class="who"><span class="mono" title="Nadège Essomba">NE</span><span class="mono" title="Hélène Atangana">HA</span></dd></div>
+            </dl>
+          </div>
+          <div class="panel" role="tabpanel" id="panel-2" aria-labelledby="tab-2" tabindex="0" hidden>
+            <h3>Évaluation de sûreté</h3>
+            <p>Identification des biens et infrastructures à protéger, des menaces, des vulnérabilités, y compris informatiques, et des mesures à mettre en place.</p>
+            <dl class="facts">
+              <div><dt>Livrable</dt><dd>Évaluation de sûreté prête à soumettre</dd></div>
+              <div><dt>Durée indicative</dt><dd>3 à 6 semaines</dd></div>
+              <div><dt>Intervenants</dt><dd class="who"><span class="mono" title="Patrick Ngando">PN</span><span class="mono" title="Nadège Essomba">NE</span><span class="mono" title="Arnaud Kemayou">AK</span></dd></div>
+            </dl>
+          </div>
+          <div class="panel" role="tabpanel" id="panel-3" aria-labelledby="tab-3" tabindex="0" hidden>
+            <h3>Plan de sûreté</h3>
+            <p>Rédaction du plan et des procédures pour les niveaux de sûreté 1, 2 et 3, adaptés à vos opérations, puis préparation du dossier d'approbation.</p>
+            <dl class="facts">
+              <div><dt>Livrable</dt><dd>Plan de sûreté, procédures et registres</dd></div>
+              <div><dt>Durée indicative</dt><dd>4 à 8 semaines</dd></div>
+              <div><dt>Intervenants</dt><dd class="who"><span class="mono" title="Nadège Essomba">NE</span><span class="mono" title="Hélène Atangana">HA</span><span class="mono" title="Arnaud Kemayou">AK</span></dd></div>
+            </dl>
+          </div>
+          <div class="panel" role="tabpanel" id="panel-4" aria-labelledby="tab-4" tabindex="0" hidden>
+            <h3>Formation des agents et des équipes</h3>
+            <p>Formation de l'agent de sûreté (PFSO, SSO ou CSO) et de ses adjoints, du personnel ayant des tâches de sûreté et sensibilisation de tous.</p>
+            <dl class="facts">
+              <div><dt>Livrable</dt><dd>Sessions, supports et attestations de présence</dd></div>
+              <div><dt>Durée indicative</dt><dd>1 à 2 semaines</dd></div>
+              <div><dt>Intervenants</dt><dd class="who"><span class="mono" title="Nadège Essomba">NE</span><span class="mono" title="Joël Mvondo">JM</span><span class="mono" title="Arnaud Kemayou">AK</span></dd></div>
+            </dl>
+          </div>
+          <div class="panel" role="tabpanel" id="panel-5" aria-labelledby="tab-5" tabindex="0" hidden>
+            <h3>Exercices et préparation à la vérification</h3>
+            <p>Entraînements et exercices sur des scénarios réalistes, audit interne à blanc et corrections avant la vérification de l'autorité désignée.</p>
+            <dl class="facts">
+              <div><dt>Livrable</dt><dd>Comptes rendus d'exercice et plan d'actions</dd></div>
+              <div><dt>Durée indicative</dt><dd>2 à 4 semaines</dd></div>
+              <div><dt>Intervenants</dt><dd class="who"><span class="mono" title="Patrick Ngando">PN</span><span class="mono" title="Joël Mvondo">JM</span><span class="mono" title="Nadège Essomba">NE</span></dd></div>
+            </dl>
+          </div>
+          <div class="panel" role="tabpanel" id="panel-6" aria-labelledby="tab-6" tabindex="0" hidden>
+            <h3>Maintien de la conformité</h3>
+            <p>Revues périodiques du plan, programme d'exercices, audits internes et suivi des évolutions réglementaires et des menaces.</p>
+            <dl class="facts">
+              <div><dt>Livrable</dt><dd>Calendrier annuel et rapports de revue</dd></div>
+              <div><dt>Durée indicative</dt><dd>Accompagnement continu</dd></div>
+              <div><dt>Intervenants</dt><dd class="who"><span class="mono" title="Nadège Essomba">NE</span><span class="mono" title="Arnaud Kemayou">AK</span><span class="mono" title="Hélène Atangana">HA</span></dd></div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="band" id="services" aria-labelledby="h-services">
+      <div class="wrap split">
+        <div class="head">
+          <h2 id="h-services">Ce que nous faisons</h2>
+          <p>Un interlocuteur unique pour la sûreté physique, la formation, la qualité et la cybersécurité.</p>
+        </div>
+        <div class="acc">
+          <details open>
+            <summary><span class="acc__t">Accompagnement ISPS</span><span class="acc__d">Installations portuaires et navires</span></summary>
+            <ul>
+              <li>Évaluation de sûreté de l'installation ou du navire</li>
+              <li>Rédaction du plan de sûreté et des procédures</li>
+              <li>Préparation du dossier d'approbation et de la vérification</li>
+              <li>Déclarations de sûreté et interface navire-port</li>
+            </ul>
+          </details>
+          <details>
+            <summary><span class="acc__t">Formation</span><span class="acc__d">Agents de sûreté, équipes, direction</span></summary>
+            <ul>
+              <li>Agent de sûreté de l'installation portuaire (PFSO)</li>
+              <li>Agent de sûreté du navire (SSO) et de la compagnie (CSO)</li>
+              <li>Personnel ayant des tâches de sûreté</li>
+              <li>Sensibilisation de tout le personnel</li>
+            </ul>
+          </details>
+          <details>
+            <summary><span class="acc__t">Exercices et audits</span><span class="acc__d">Tester avant que cela compte</span></summary>
+            <ul>
+              <li>Scénarios : intrusion, colis suspect, passager clandestin, menace côté mer</li>
+              <li>Exercices conjoints avec les navires et les autorités</li>
+              <li>Audits internes de sûreté et suivi des actions correctives</li>
+            </ul>
+          </details>
+          <details>
+            <summary><span class="acc__t">Management QSE</span><span class="acc__d">ISO 9001, ISO 14001, ISO 45001, MASE</span></summary>
+            <ul>
+              <li>Mise en place de systèmes de management intégrés</li>
+              <li>Audits internes et préparation à la certification</li>
+              <li>Document unique, plans de prévention, veille réglementaire</li>
+            </ul>
+          </details>
+          <details>
+            <summary><span class="acc__t">Cybersécurité</span><span class="acc__d">Les systèmes qui protègent le port</span></summary>
+            <ul>
+              <li>Cyberrisques intégrés à l'évaluation de sûreté : contrôle d'accès, vidéosurveillance, réseaux, accès distants</li>
+              <li>Politiques et procédures cohérentes avec les niveaux de sûreté</li>
+              <li>Sensibilisation à la cybercriminalité et à la fraude</li>
+              <li>Réponse à incident et investigation numérique</li>
+            </ul>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ÉQUIPE ============ -->
+    <section class="band band--mist" id="equipe" aria-labelledby="h-equipe">
+      <div class="wrap">
+        <div class="head">
+          <h2 id="h-equipe">Cinq expertises réunies</h2>
+          <p>Sûreté portuaire, navires, droit maritime, analyse de la menace et cybersécurité. Sélectionnez un profil pour le détail.</p>
+        </div>
+
+        <div class="chips" role="group" aria-label="Filtrer l'équipe par domaine">
+          <button class="chip" type="button" data-f="all" aria-pressed="true">Tous</button>
+          <button class="chip" type="button" data-f="port" aria-pressed="false">Installations portuaires</button>
+          <button class="chip" type="button" data-f="navire" aria-pressed="false">Navires</button>
+          <button class="chip" type="button" data-f="droit" aria-pressed="false">Réglementation</button>
+          <button class="chip" type="button" data-f="cyber" aria-pressed="false">Cybersécurité</button>
+        </div>
+
+        <ul class="team">
+          <li class="person" data-tags="port qse formation">
+            <button class="person__btn" type="button" data-open="p-ne">
+              <span class="mono mono--lg" aria-hidden="true">NE</span>
+              <span class="person__name">Nadège Essomba</span>
+              <span class="person__role">Associée fondatrice, sûreté portuaire et QSE</span>
+            </button>
+            <div class="person__more" id="p-ne">
+              <p class="person__sum">Dix ans en sûreté, sécurité et QSE sur des sites portuaires et industriels.</p>
+              <ul>
+                <li>Ancienne responsable QHSSE d'un organisme de sûreté reconnu : audits de sûreté et certification ISPS de deux ports en eau profonde, d'une raffinerie et d'une base logistique pétrolière</li>
+                <li>Conception de plans de sûreté et formation d'agents de sûreté d'installations portuaires</li>
+                <li>Coordination sûreté et sécurité d'un site industriel portuaire, avec une équipe de 16 agents</li>
+                <li>Systèmes de management intégrés ISO 9001, ISO 14001, ISO 45001 et MASE</li>
+                <li>Mastère spécialisé Manager des systèmes QSE, Master 2 QSE</li>
+                <li>Formée agent de sûreté d'installation portuaire, auditrice QSE intégré certifiée</li>
+              </ul>
+            </div>
+          </li>
+          <li class="person" data-tags="cyber formation">
+            <button class="person__btn" type="button" data-open="p-ak">
+              <span class="mono mono--lg mono--accent" aria-hidden="true">AK</span>
+              <span class="person__name">Arnaud Kemayou</span>
+              <span class="person__role">Associé, cybersécurité et investigation numérique</span>
+            </button>
+            <div class="person__more" id="p-ak">
+              <p class="person__sum">Ingénieur en cybersécurité et investigation numérique.</p>
+              <ul>
+                <li>Responsable de la sécurité des systèmes d'information dans le secteur financier</li>
+                <li>Parcours en ingénierie sécurité, DevSecOps, réseaux et cybersécurité</li>
+                <li>Consultant et formateur en cybersécurité et cybercriminalité au sein d'un organisme de sûreté reconnu</li>
+                <li>Gouvernance ISO 27001, gestion d'incidents, investigation numérique</li>
+                <li>Certifications ISO 27001, CCNP, NSE4, NSEPTA et CCT</li>
+                <li>Distinction nationale en cybersécurité</li>
+              </ul>
+            </div>
+          </li>
+          <li class="person" data-tags="navire formation">
+            <button class="person__btn" type="button" data-open="p-jm">
+              <span class="mono mono--lg" aria-hidden="true">JM</span>
+              <span class="person__name">Joël Mvondo</span>
+              <span class="person__role">Auditeur ISPS navires, formateur SSO et CSO</span>
+            </button>
+            <div class="person__more" id="p-jm">
+              <p class="person__sum">Ancien commandant de la marine marchande, vingt ans de navigation.</p>
+              <ul>
+                <li>Commandement de pétroliers et de porte-conteneurs</li>
+                <li>Audits de sûreté à bord et revue des plans de sûreté des navires</li>
+                <li>Formation des agents de sûreté du navire (SSO) et de la compagnie (CSO)</li>
+                <li>Interface navire-port : déclarations de sûreté et exercices conjoints</li>
+              </ul>
+            </div>
+          </li>
+          <li class="person" data-tags="droit port">
+            <button class="person__btn" type="button" data-open="p-ha">
+              <span class="mono mono--lg" aria-hidden="true">HA</span>
+              <span class="person__name">Hélène Atangana</span>
+              <span class="person__role">Juriste, droit maritime et conformité</span>
+            </button>
+            <div class="person__more" id="p-ha">
+              <p class="person__sum">Juriste en droit maritime et portuaire, douze ans d'expérience.</p>
+              <ul>
+                <li>Convention SOLAS, chapitre XI-2, code ISPS et textes nationaux d'application</li>
+                <li>Dossiers d'approbation et échanges avec l'autorité désignée</li>
+                <li>Contrats de prestation de sûreté et clauses de sous-traitance</li>
+                <li>Veille réglementaire et mise à jour des procédures</li>
+              </ul>
+            </div>
+          </li>
+          <li class="person" data-tags="port navire">
+            <button class="person__btn" type="button" data-open="p-pn">
+              <span class="mono mono--lg" aria-hidden="true">PN</span>
+              <span class="person__name">Patrick Ngando</span>
+              <span class="person__role">Expert évaluation de sûreté et analyse de la menace</span>
+            </button>
+            <div class="person__more" id="p-pn">
+              <p class="person__sum">Ancien officier de marine, spécialiste de la sûreté maritime.</p>
+              <ul>
+                <li>Évaluations de sûreté d'installations portuaires et analyse de la menace dans le golfe de Guinée</li>
+                <li>Scénarios d'exercices : intrusion, colis suspect, passager clandestin, attaque côté mer</li>
+                <li>Coordination avec les forces de l'ordre, les services de secours et les autorités maritimes</li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+
+        <p class="refs"><strong>Expérience de l'équipe</strong>, acquise auprès de précédents employeurs : deux ports en eau profonde, une raffinerie, une base logistique pétrolière, un site industriel portuaire et des navires de commerce.</p>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="band" id="contact" aria-labelledby="h-contact">
+      <div class="wrap split">
+        <div class="head">
+          <h2 id="h-contact">Parlons de votre installation</h2>
+          <p>Un premier échange de 30 minutes, sans engagement, pour cadrer votre besoin.</p>
+          <dl class="coords">
+            <div><dt>E-mail</dt><dd>contact@capsurete.example</dd></div>
+            <div><dt>Téléphone</dt><dd>+237 6XX XX XX XX</dd></div>
+            <div><dt>Interventions</dt><dd>Afrique centrale et golfe de Guinée, en français et en anglais</dd></div>
+          </dl>
+        </div>
+
+        <form class="form" id="form" data-mailto="contact@capsurete.example" novalidate>
+          <p class="form__diag" id="form-diag" hidden></p>
+          <div class="row">
+            <label class="field"><span>Nom</span><input name="nom" type="text" autocomplete="name" required></label>
+            <label class="field"><span>Organisation</span><input name="organisation" type="text" autocomplete="organization"></label>
+          </div>
+          <div class="row">
+            <label class="field"><span>E-mail</span><input name="email" type="email" autocomplete="email" required></label>
+            <label class="field"><span>Téléphone <em>(facultatif)</em></span><input name="tel" type="tel" autocomplete="tel"></label>
+          </div>
+          <label class="field"><span>Message</span><textarea name="message" rows="5" required></textarea></label>
+          <p class="form__err" id="form-err" role="alert" hidden></p>
+          <div class="form__end">
+            <button class="btn" type="submit">Envoyer par e-mail</button>
+            <p class="form__note">Le message s'ouvre dans votre messagerie. Ce site n'enregistre aucune donnée.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot__bar">
+      <p>© <span data-year>2026</span> Cap Sûreté. Tous droits réservés.</p>
+      <p><a href="mentions-legales.html">Mentions légales</a></p>
+    </div>
+  </footer>
+
+  <dialog class="sheet" id="sheet" aria-labelledby="sheet-name">
+    <div class="sheet__in">
+      <button class="sheet__close" type="button" data-close aria-label="Fermer la fiche">Fermer</button>
+      <div class="sheet__id">
+        <span class="mono mono--xl" id="sheet-mono" aria-hidden="true"></span>
+        <div>
+          <h2 id="sheet-name"></h2>
+          <p class="sheet__role" id="sheet-role"></p>
+        </div>
+      </div>
+      <div id="sheet-body"></div>
+    </div>
+  </dialog>
+
+  <script src="assets/js/escale.js" defer></script>
+</body>
+</html>

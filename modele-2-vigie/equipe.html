@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cap Sûreté | Équipe</title>
+  <meta name="description" content="Une équipe pluridisciplinaire : sûreté portuaire, navires, droit maritime, analyse de la menace et cybersécurité.">
+  <meta name="theme-color" content="#0F2D46">
+  <!-- Maquette : retirer la ligne suivante pour autoriser l'indexation -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; base-uri 'self'; object-src 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/vigie.css">
+</head>
+<body data-page="equipe">
+  <a class="skip" href="#contenu">Aller au contenu</a>
+  <p class="demo-note">Maquette de démonstration : les noms et profils de l'équipe sont fictifs.</p>
+
+  <header class="hd">
+    <div class="wrap hd__bar">
+      <a class="brand" href="index.html" aria-label="Cap Sûreté, accueil">
+        <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true"><rect class="bm-a" x="1" y="1" width="30" height="30" rx="3"/><rect class="bm-b" x="1" y="1" width="30" height="7" rx="3"/><path class="bm-c" d="M9 13v13M16 13v13M23 13v13"/></svg>
+        <span>Cap Sûreté</span>
+      </a>
+      <nav class="nav" id="nav" aria-label="Navigation principale">
+        <a href="index.html#explorer">Explorer</a>
+        <a href="formations.html">Formations</a>
+        <a href="equipe.html">Équipe</a>
+        <a class="nav__cta" href="demande.html">Faire une demande <span class="count" data-cart-count hidden></span></a>
+      </nav>
+      <div class="hd__tools">
+        <div class="rolepick">
+          <button class="rolepick__btn" id="role-btn" type="button" aria-expanded="false" aria-controls="role-menu">Profil : <strong data-role-label>à choisir</strong></button>
+          <div class="rolepick__menu" id="role-menu" hidden></div>
+        </div>
+        <button class="nav-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <section class="pagehead" aria-labelledby="h-page">
+      <div class="wrap">
+        <h1 id="h-page">Équipe</h1>
+        <p class="lead">Les compétences attendues d'un organisme qui accompagne la sûreté maritime, réunies dans une équipe de cinq personnes.</p>
+      </div>
+    </section>
+
+    <section class="sec sec--tight" aria-labelledby="h-matrix">
+      <div class="wrap">
+        <div class="sec__head">
+          <h2 id="h-matrix">Qui fait quoi</h2>
+          <p>Sélectionnez un domaine pour faire ressortir les profils concernés.</p>
+        </div>
+        <div class="matrix-wrap">
+          <table class="matrix" id="matrix">
+            <caption class="sr-only">Compétences de l'équipe par domaine</caption>
+          </table>
+        </div>
+        <p class="legend"><span class="dot dot--2" aria-hidden="true"></span> Référent <span class="dot dot--1" aria-hidden="true"></span> Intervient</p>
+      </div>
+    </section>
+
+    <section class="sec sec--line" aria-labelledby="h-roster">
+      <div class="wrap">
+        <div class="sec__head"><h2 id="h-roster">Parcours</h2></div>
+        <ul class="roster" id="roster"></ul>
+        <p class="refs"><strong>Expérience de l'équipe</strong>, acquise auprès de précédents employeurs : deux ports en eau profonde, une raffinerie, une base logistique pétrolière, un site industriel portuaire et des navires de commerce.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ft">
+    <div class="wrap ft__in">
+      <p class="ft__brand">Cap Sûreté</p>
+      <nav aria-label="Pied de page"><a href="formations.html">Formations</a><a href="equipe.html">Équipe</a><a href="demande.html">Demande</a><a href="mentions-legales.html">Mentions légales</a></nav>
+      <p class="ft__legal">© <span data-year>2026</span> Cap Sûreté. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/data.js" defer></script>
+  <script src="assets/js/vigie.js" defer></script>
+</body>
+</html>
