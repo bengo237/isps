@@ -4,6 +4,8 @@
   var D = window.VIGIE;
   if (!D) return;
   var page = document.body.getAttribute("data-page");
+  var calm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!calm) document.documentElement.classList.add("js-motion");
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var params = new URLSearchParams(window.location.search);
@@ -46,7 +48,17 @@
     return i === -1;
   }
 
-  /* ---------- En-tête ---------- */
+  /* ---------- En-tête et barre de lecture ---------- */
+  var hd = $(".hd"), readBar = h("div", { cls: "scrollbar", "aria-hidden": "true" });
+  document.body.appendChild(readBar);
+  function onScroll() {
+    hd.setAttribute("data-scrolled", String(window.scrollY > 8));
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    readBar.style.transform = "scaleX(" + (max > 0 ? Math.min(1, window.scrollY / max) : 0) + ")";
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
   var navBtn = $(".nav-btn"), nav = $("#nav");
   navBtn.addEventListener("click", function () {
     var open = navBtn.getAttribute("aria-expanded") !== "true";
@@ -86,9 +98,14 @@
   function updateRoleLabel() {
     $$("[data-role-label]").forEach(function (el) { el.textContent = role() ? D.roles[role()].label : "à choisir"; });
   }
+  var lastCount = null;
   function updateCount() {
     var n = cart().length;
-    $$("[data-cart-count]").forEach(function (el) { el.hidden = n === 0; el.textContent = String(n); el.setAttribute("aria-label", n + " formation" + (n > 1 ? "s" : "") + " sélectionnée" + (n > 1 ? "s" : "")); });
+    $$("[data-cart-count]").forEach(function (el) {
+      el.hidden = n === 0; el.textContent = String(n); el.setAttribute("aria-label", n + " formation" + (n > 1 ? "s" : "") + " sélectionnée" + (n > 1 ? "s" : ""));
+      if (lastCount !== null && n > lastCount) replay(el, "bump");
+    });
+    lastCount = n;
   }
   updateRoleLabel();
   updateCount();
@@ -198,18 +215,19 @@
       var b = e.target.closest("button"); if (!b) return;
       dom = b.getAttribute("data-d");
       $$("button", filters).forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
-      render();
+      render(true);
     });
     function syncForMe() {
       forMe.hidden = !role();
       if (!role()) forMe.setAttribute("aria-pressed", "false");
       forMe.textContent = role() ? "Conseillées pour : " + D.roles[role()].label : "";
     }
-    forMe.addEventListener("click", function () { forMe.setAttribute("aria-pressed", String(forMe.getAttribute("aria-pressed") !== "true")); render(); });
-    q.addEventListener("input", render);
-    document.addEventListener("rolechange", function () { syncForMe(); render(); });
+    forMe.addEventListener("click", function () { forMe.setAttribute("aria-pressed", String(forMe.getAttribute("aria-pressed") !== "true")); render(true); });
+    q.addEventListener("input", function () { render(true); });
+    document.addEventListener("rolechange", function () { syncForMe(); render(true); });
 
-    function render() {
+    // animate : faire entrer les cartes une à une (filtres, recherche), pas lors d'un ajout à la demande
+    function render(animate) {
       var term = norm(q.value.trim());
       var mine = forMe.getAttribute("aria-pressed") === "true" && role() ? D.roles[role()].mods : null;
       var c = cart();
@@ -224,13 +242,13 @@
       if (!list.length) {
         cards.appendChild(h("div", { cls: "empty" }, [
           h("p", { text: "Aucune formation ne correspond à ces critères. Effacez la recherche ou choisissez un autre domaine." }),
-          h("button", { cls: "btn btn--line btn--sm", type: "button", text: "Tout afficher", onclick: function () { q.value = ""; dom = "all"; forMe.setAttribute("aria-pressed", "false"); $$("button", filters).forEach(function (x) { x.setAttribute("aria-pressed", String(x.getAttribute("data-d") === "all")); }); render(); } })
+          h("button", { cls: "btn btn--line btn--sm", type: "button", text: "Tout afficher", onclick: function () { q.value = ""; dom = "all"; forMe.setAttribute("aria-pressed", "false"); $$("button", filters).forEach(function (x) { x.setAttribute("aria-pressed", String(x.getAttribute("data-d") === "all")); }); render(true); } })
         ]));
         return;
       }
-      list.forEach(function (m) {
+      list.forEach(function (m, i) {
         var picked = c.indexOf(m.id) > -1;
-        cards.appendChild(h("article", { cls: "card" + (picked ? " is-picked" : "") }, [
+        var card = cards.appendChild(h("article", { cls: "card" + (picked ? " is-picked" : "") + (animate ? " is-new" : "") }, [
           h("p", { cls: "tag", "data-d": m.d, text: D.domains[m.d] }),
           h("h3", { text: m.title }),
           h("p", { cls: "card__meta" }, [h("span", { text: m.who }), h("span", { text: m.days })]),
@@ -239,6 +257,7 @@
             h("button", { cls: "btn btn--sm add", type: "button", "aria-pressed": String(picked), "aria-label": (picked ? "Retirer de ma demande : " : "Ajouter à ma demande : ") + m.title, text: picked ? "Ajoutée" : "Ajouter", onclick: function () { toggleCart(m.id); } })
           ])
         ]));
+        card.style.setProperty("--i", String(i));
       });
     }
 
@@ -275,7 +294,7 @@
     document.addEventListener("cartchange", function () { render(); renderTray(true); syncDlgAdd(); });
 
     syncForMe();
-    render();
+    render(true);
     renderTray(false);
     if (params.get("m")) openDlg(params.get("m"));
   }
@@ -296,6 +315,7 @@
         return h("td", null, v ? [h("span", { cls: "dot dot--" + v, "aria-hidden": "true" }), h("span", { cls: "sr-only", text: v === 2 ? "Référent" : "Intervient" })] : [h("span", { cls: "sr-only", text: "Non" })]);
       }))));
     });
+    $$(".dot", tbody).forEach(function (d, k) { d.style.setProperty("--i", String(k)); });
     table.appendChild(thead); table.appendChild(tbody);
 
     D.team.forEach(function (p) {
@@ -429,4 +449,80 @@
     back.addEventListener("click", function () { show(step - 1); });
     $("#wiz-edit").addEventListener("click", function () { show(3); });
   }
+
+  /* =====================================================================
+     ANIMATIONS
+     ===================================================================== */
+  var stats = { modules: D.modules.length, team: D.team.length, levels: D.levels.length, roles: Object.keys(D.roles).length };
+  var statEls = $$("[data-stat]");
+  statEls.forEach(function (el) { el.textContent = String(stats[el.getAttribute("data-stat")]); });
+  if (calm) return;
+
+  function countUp(node, to, ms) {
+    var t0 = Date.now();
+    (function tick() {
+      var k = Math.min(1, (Date.now() - t0) / ms);
+      node.textContent = String(Math.round(to * (1 - Math.pow(1 - k, 3))));
+      if (k < 1) setTimeout(tick, 16);
+    })();
+  }
+
+  // Titre principal mot par mot, sans toucher aux balises internes
+  var heading = $(".intro h1, .pagehead h1"), wi = 0;
+  if (heading) (function split(node) {
+    Array.prototype.slice.call(node.childNodes).forEach(function (c) {
+      if (c.nodeType === 1) { split(c); return; }
+      if (c.nodeType !== 3 || !c.textContent.trim()) return;
+      var frag = document.createDocumentFragment();
+      c.textContent.split(/(\s+)/).forEach(function (part) {
+        if (!part) return;
+        if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+        var w = h("span", { cls: "w", text: part });
+        w.style.setProperty("--i", String(wi++));
+        frag.appendChild(w);
+      });
+      node.replaceChild(frag, c);
+    });
+  })(heading);
+
+  if ("IntersectionObserver" in window) {
+    // Apparition au défilement ; la classe est retirée ensuite pour laisser libres les effets de survol
+    var groups = [".sec__head", ".ex__head", ".ex__map", ".ex__panel", ".how li", ".crew__list li", ".cta__in", ".tools", ".matrix-wrap", ".legend", ".mate", ".refs", ".wiz__steps", ".wiz__form", ".legal"];
+    var rv = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add("is-in"); rv.unobserve(en.target); } });
+    }, { rootMargin: "0px 0px -8% 0px" });
+    groups.forEach(function (sel) {
+      $$(sel).forEach(function (n, i) {
+        n.classList.add("rv");
+        n.style.setProperty("--d", String(i % 6));
+        n.addEventListener("transitionend", function end(e) {
+          if (e.target !== n || e.propertyName !== "opacity") return;
+          n.classList.remove("rv");
+          n.removeEventListener("transitionend", end);
+        });
+        rv.observe(n);
+      });
+    });
+
+    // Chiffres clés
+    if (statEls.length) {
+      statEls.forEach(function (el) { el.textContent = "0"; });
+      var so = new IntersectionObserver(function (entries) {
+        if (!entries[0].isIntersecting) return;
+        so.disconnect();
+        statEls.forEach(function (el, i) { setTimeout(function () { countUp(el, stats[el.getAttribute("data-stat")], 1400); }, 500 + i * 120); });
+      });
+      so.observe(statEls[0].closest("dl"));
+    }
+  }
+
+  // Halo qui suit le pointeur sur les cartes (y compris celles créées après coup)
+  document.addEventListener("pointermove", function (e) {
+    if (e.pointerType !== "mouse" || !e.target.closest) return;
+    var c = e.target.closest(".card, .role");
+    if (!c) return;
+    var r = c.getBoundingClientRect();
+    c.style.setProperty("--mx", (e.clientX - r.left) + "px");
+    c.style.setProperty("--my", (e.clientY - r.top) + "px");
+  }, { passive: true });
 })();

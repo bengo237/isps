@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Cap Sûreté | Sûreté portuaire et maritime</title>
-  <meta name="description" content="Formation, conseil et cybersécurité pour les installations portuaires et les compagnies maritimes. Explorez une installation, consultez le catalogue des formations et préparez votre demande.">
+  <meta name="description" content="Cap Sûreté forme et conseille les installations portuaires et les compagnies maritimes, en sûreté comme en cybersécurité. Explorez un port type, parcourez nos formations et envoyez-nous votre demande.">
   <meta name="theme-color" content="#0F2D46">
   <!-- Maquette : retirer la ligne suivante pour autoriser l'indexation -->
   <meta name="robots" content="noindex, nofollow">
@@ -45,9 +45,18 @@
   <main id="contenu">
     <!-- ============ ACCUEIL PAR PROFIL ============ -->
     <section class="intro" aria-labelledby="h-intro">
+      <div class="fx-grid" aria-hidden="true"></div>
+      <div class="radar" aria-hidden="true"><span class="radar__sweep"></span><i></i><i></i><i></i><i></i></div>
       <div class="wrap">
-        <h1 id="h-intro">La sûreté d'un port se joue à chaque poste.</h1>
-        <p class="lead">Formation, conseil et cybersécurité pour les installations portuaires et les compagnies maritimes. Dites-nous qui vous êtes : nous vous montrons par où commencer.</p>
+        <p class="eyebrow"><span class="pulse" aria-hidden="true"></span>Code ISPS, sûreté et cybersécurité</p>
+        <h1 id="h-intro">La sûreté portuaire, du portail <span class="hl">jusqu'au navire</span></h1>
+        <p class="lead">Nous formons et conseillons les installations portuaires et les compagnies maritimes, en sûreté comme en cybersécurité. Indiquez votre profil et nous vous montrons par où commencer.</p>
+        <dl class="stats">
+          <div><dt>formations</dt><dd data-stat="modules">10</dd></div>
+          <div><dt>spécialistes</dt><dd data-stat="team">5</dd></div>
+          <div><dt>niveaux de sûreté</dt><dd data-stat="levels">3</dd></div>
+          <div><dt>profils accompagnés</dt><dd data-stat="roles">4</dd></div>
+        </dl>
 
         <div class="roles" role="group" aria-label="Choisir votre profil">
           <button class="role" type="button" data-role="direction"><span class="role__t">Direction d'installation</span><span class="role__d">Port, terminal, raffinerie, base offshore</span></button>
@@ -62,10 +71,12 @@
 
     <!-- ============ EXPLORATEUR ============ -->
     <section class="explorer" id="explorer" aria-labelledby="h-explorer">
+      <div class="fx-grid" aria-hidden="true"></div>
       <div class="wrap">
         <div class="ex__head">
+          <p class="kicker">Explorateur</p>
           <h2 id="h-explorer">Explorez une installation portuaire</h2>
-          <p>Sélectionnez un point du plan, puis un niveau de sûreté. Vous voyez ce que le code ISPS demande et comment nous vous aidons.</p>
+          <p>Cliquez sur un point du plan et choisissez un niveau de sûreté pour voir ce qu'exige le code ISPS et ce que nous pouvons faire pour vous.</p>
         </div>
 
         <div class="ex__grid">
@@ -100,9 +111,11 @@
                 <path class="p-fence" d="M20 360 V20 H780 V360 M20 212 V20 M20 260 V360"/>
                 <rect class="p-gate" x="20" y="232" width="48" height="6" rx="1"/>
                 <text class="p-txt" x="34" y="290">Portail</text>
-                <path class="p-ship" d="M420 372 H730 Q772 372 778 400 Q772 428 730 428 H420 Z"/>
-                <rect class="p-deck" x="434" y="382" width="46" height="36" rx="2"/>
-                <g class="p-box"><rect x="494" y="386" width="40" height="28"/><rect x="540" y="386" width="40" height="28"/><rect x="586" y="386" width="40" height="28"/><rect x="632" y="386" width="40" height="28"/><rect x="678" y="386" width="40" height="28"/></g>
+                <g class="p-vessel">
+                  <path class="p-ship" d="M420 372 H730 Q772 372 778 400 Q772 428 730 428 H420 Z"/>
+                  <rect class="p-deck" x="434" y="382" width="46" height="36" rx="2"/>
+                  <g class="p-box"><rect x="494" y="386" width="40" height="28"/><rect x="540" y="386" width="40" height="28"/><rect x="586" y="386" width="40" height="28"/><rect x="632" y="386" width="40" height="28"/><rect x="678" y="386" width="40" height="28"/></g>
+                </g>
                 <line class="p-gangway" x1="457" y1="360" x2="457" y2="382"/>
                 <path class="p-x" d="M447 362 l20 18 M467 362 l-20 18"/>
                 <text class="p-txt" x="790" y="352" text-anchor="end">Quai</text>
@@ -133,14 +146,15 @@
     <section class="sec" aria-labelledby="h-how">
       <div class="wrap">
         <div class="sec__head">
+          <p class="kicker">Méthode</p>
           <h2 id="h-how">Comment nous travaillons</h2>
-          <p>Chaque mission suit le même enchaînement, quelle que soit la taille de l'installation.</p>
+          <p>Petite ou grande installation, nos missions se déroulent toujours dans le même ordre.</p>
         </div>
         <ol class="how">
-          <li><h3>Diagnostic sur site</h3><p>Visite, entretiens, revue documentaire et rapport d'écarts.</p></li>
-          <li><h3>Évaluation et plan</h3><p>Évaluation de sûreté, plan, procédures et dossier d'approbation.</p></li>
-          <li><h3>Formation et exercices</h3><p>Agents de sûreté, équipes, scénarios et retour d'expérience.</p></li>
-          <li><h3>Suivi dans la durée</h3><p>Revues, audits internes et veille réglementaire.</p></li>
+          <li><h3>Diagnostic sur site</h3><p>Nous visitons le site, rencontrons vos équipes et relisons vos documents, puis nous vous remettons un rapport d'écarts.</p></li>
+          <li><h3>Évaluation et plan</h3><p>Nous réalisons l'évaluation de sûreté, rédigeons le plan et les procédures, et montons le dossier d'approbation.</p></li>
+          <li><h3>Formation et exercices</h3><p>Nous formons vos agents et vos équipes, puis nous testons le dispositif en exercice avant d'en tirer les leçons ensemble.</p></li>
+          <li><h3>Suivi dans la durée</h3><p>Après l'approbation, nous restons à vos côtés avec des revues régulières, des audits internes et une veille réglementaire.</p></li>
         </ol>
       </div>
     </section>
@@ -149,8 +163,9 @@
     <section class="sec sec--line" aria-labelledby="h-crew">
       <div class="wrap crew">
         <div class="sec__head">
+          <p class="kicker">Équipe</p>
           <h2 id="h-crew">L'équipe</h2>
-          <p>Sûreté portuaire, navires, droit maritime, analyse de la menace et cybersécurité réunis dans une même équipe.</p>
+          <p>Nous sommes cinq, avec des parcours dans les ports, sur les navires, en droit maritime, en analyse de la menace et en cybersécurité.</p>
           <a class="btn btn--line" href="equipe.html">Voir les parcours et les compétences</a>
         </div>
         <ul class="crew__list" id="crew-list"></ul>
@@ -161,8 +176,8 @@
     <section class="cta" aria-labelledby="h-cta">
       <div class="wrap cta__in">
         <div>
-          <h2 id="h-cta">Votre demande en trois étapes</h2>
-          <p>Besoin, installation, coordonnées. Les formations que vous avez sélectionnées sont reprises automatiquement.</p>
+          <h2 id="h-cta">Parlez-nous de votre projet</h2>
+          <p>Le formulaire tient en trois étapes et reprend les formations que vous avez déjà sélectionnées.</p>
         </div>
         <a class="btn" href="demande.html">Faire une demande</a>
       </div>

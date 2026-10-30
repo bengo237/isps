@@ -2,12 +2,22 @@
 (function () {
   "use strict";
   document.documentElement.classList.remove("no-js");
+  var calm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!calm) document.documentElement.classList.add("js-motion");
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
 
-  /* ---------- En-tête ---------- */
+  /* ---------- En-tête et barre de lecture ---------- */
   var top = $(".top");
-  var onScroll = function () { top.setAttribute("data-scrolled", String(window.scrollY > 8)); };
+  var readBar = document.createElement("div");
+  readBar.className = "scrollbar";
+  readBar.setAttribute("aria-hidden", "true");
+  document.body.appendChild(readBar);
+  var onScroll = function () {
+    top.setAttribute("data-scrolled", String(window.scrollY > 8));
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    readBar.style.transform = "scaleX(" + (max > 0 ? Math.min(1, window.scrollY / max) : 0) + ")";
+  };
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
@@ -85,6 +95,7 @@
     q.opts.forEach(function (o, i) {
       var b = el("button", "opt", o.t);
       b.type = "button";
+      b.style.setProperty("--i", String(i));
       var picked = answers[q.id] && answers[q.id].i === i;
       b.setAttribute("aria-pressed", String(!!picked));
       b.addEventListener("click", function () {
@@ -201,6 +212,7 @@
 
     body.appendChild(wrap);
     requestAnimationFrame(function () { requestAnimationFrame(function () { fg.setAttribute("stroke-dashoffset", String(C * (1 - r.pct / 100))); }); });
+    if (!calm) countUp(tx, r.pct, " %", 1200);
     title.focus({ preventScroll: true });
   }
 
@@ -241,6 +253,7 @@
   /* ---------- Parcours : onglets ---------- */
   var tabs = $$(".step");
   function select(tab, focus) {
+    tab.parentNode.style.setProperty("--p", String(tabs.indexOf(tab) / (tabs.length - 1)));
     tabs.forEach(function (t) {
       var on = t === tab;
       t.setAttribute("aria-selected", String(on));
@@ -294,4 +307,61 @@
 
   /* ---------- Année ---------- */
   $$("[data-year]").forEach(function (y) { y.textContent = String(new Date().getFullYear()); });
+
+  /* ---------- Animations ---------- */
+  function countUp(node, to, suffix, ms) {
+    var t0 = Date.now();
+    (function tick() {
+      var k = Math.min(1, (Date.now() - t0) / ms);
+      node.textContent = Math.round(to * (1 - Math.pow(1 - k, 3))) + suffix;
+      if (k < 1) setTimeout(tick, 16);
+    })();
+  }
+  if (calm) return;
+
+  // Titre mot par mot, sans toucher aux balises internes
+  var wi = 0;
+  (function split(node) {
+    Array.prototype.slice.call(node.childNodes).forEach(function (c) {
+      if (c.nodeType === 1) { split(c); return; }
+      if (c.nodeType !== 3 || !c.textContent.trim()) return;
+      var frag = document.createDocumentFragment();
+      c.textContent.split(/(\s+)/).forEach(function (part) {
+        if (!part) return;
+        if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+        var w = el("span", "w", part);
+        w.style.setProperty("--i", String(wi++));
+        frag.appendChild(w);
+      });
+      node.replaceChild(frag, c);
+    });
+  })($("#h-hero"));
+
+  // Apparition au défilement, décalée entre éléments voisins
+  if ("IntersectionObserver" in window) {
+    var groups = [".head", ".steps__list", ".panel:not([hidden])", ".acc details", ".chips", ".person", ".refs", ".coords div", ".form"];
+    var rv = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add("is-in"); rv.unobserve(en.target); } });
+    }, { rootMargin: "0px 0px -8% 0px" });
+    groups.forEach(function (sel) {
+      $$(sel).forEach(function (n, i) {
+        n.classList.add("rv");
+        n.style.setProperty("--d", String(i % 6));
+        rv.observe(n);
+      });
+    });
+  }
+
+  // Cartes de l'équipe : halo et légère inclinaison sous le pointeur
+  $$(".person__btn").forEach(function (b) {
+    b.addEventListener("pointermove", function (e) {
+      if (e.pointerType !== "mouse") return;
+      var r = b.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+      b.style.setProperty("--mx", (x * 100) + "%");
+      b.style.setProperty("--my", (y * 100) + "%");
+      b.style.setProperty("--rx", ((0.5 - y) * 8) + "deg");
+      b.style.setProperty("--ry", ((x - 0.5) * 10) + "deg");
+    });
+    b.addEventListener("pointerleave", function () { b.style.setProperty("--rx", "0deg"); b.style.setProperty("--ry", "0deg"); });
+  });
 })();

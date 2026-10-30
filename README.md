@@ -19,6 +19,7 @@ Les noms et profils de l'équipe sont fictifs. La marque « Cap Sûreté » est 
 ```
 index.html                 page de choix entre les deux modèles
 choix.css
+choix.js                   halo des cartes de la page de choix
 modele-1-escale/
   index.html               page unique
   mentions-legales.html
@@ -78,6 +79,7 @@ puis activer Pages comme à l'étape 3.
 - Aucun cookie, aucun outil de mesure d'audience, aucune ressource chargée depuis un site tiers.
 - Politique de sécurité du contenu stricte sur chaque page (scripts et styles du site uniquement).
 - Les formulaires ouvrent la messagerie du visiteur : rien n'est envoyé à un serveur.
+- Animations (apparition au défilement, titres mot par mot, radar, port animé) : désactivées automatiquement lorsque le visiteur a demandé moins d'animations dans les réglages de son système.
 - Modèle 2 : le profil choisi et la sélection de formations sont gardés dans le navigateur du visiteur (stockage local), pour éviter de les ressaisir d'une page à l'autre.
 
 ## Propriété

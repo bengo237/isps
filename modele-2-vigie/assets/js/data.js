@@ -5,8 +5,8 @@ window.VIGIE = {
     direction: {
       label: "Direction d'installation",
       hint: "Port, terminal, raffinerie, base offshore",
-      title: "Rendre votre installation conforme, et le rester",
-      text: "Vous répondez de la sûreté devant l'autorité désignée. Nous pilotons la démarche et vous gardez une vision claire de l'avancement.",
+      title: "Obtenir la conformité, puis la garder",
+      text: "C'est vous qui répondez de la sûreté devant l'autorité désignée. Nous pilotons la démarche et vous savez à tout moment où en est le dossier.",
       priorities: [
         { t: "Évaluation et plan de sûreté", d: "Un dossier prêt pour l'approbation", href: "#explorer" },
         { t: "Un agent de sûreté opérationnel", d: "Formation du PFSO et de ses adjoints", href: "formations.html?m=pfso" },
@@ -18,8 +18,8 @@ window.VIGIE = {
     surete: {
       label: "PFSO et équipes de sûreté",
       hint: "Agents, chefs de poste, contrôle d'accès",
-      title: "Des procédures qui tiennent sur le terrain",
-      text: "Vous appliquez le plan au quotidien et à chaque changement de niveau. Nous formons vos équipes et testons le dispositif en conditions réelles.",
+      title: "Des procédures applicables sur le terrain",
+      text: "Vous faites vivre le plan au quotidien et à chaque changement de niveau. Nous formons vos équipes et mettons le dispositif à l'épreuve lors d'exercices réalistes.",
       priorities: [
         { t: "Contrôle d'accès et zones restreintes", d: "Ce qui change aux niveaux 1, 2 et 3", href: "#explorer" },
         { t: "Formation des équipes", d: "Personnel ayant des tâches de sûreté", href: "formations.html?m=personnel" },
@@ -31,8 +31,8 @@ window.VIGIE = {
     compagnie: {
       label: "Compagnie maritime",
       hint: "Armateurs, CSO, commandants",
-      title: "Des navires et des agents prêts pour chaque escale",
-      text: "Vos navires doivent répondre aux exigences de chaque port. Nous formons vos agents de sûreté et préparons l'interface avec les installations.",
+      title: "Des navires prêts à chaque escale",
+      text: "Chaque port a ses exigences et vos navires doivent y répondre. Nous formons vos agents de sûreté et préparons avec vous les échanges avec les installations.",
       priorities: [
         { t: "Interface navire-port", d: "Déclarations de sûreté, exercices conjoints", href: "#explorer" },
         { t: "Agents de sûreté de la compagnie", d: "Formation CSO", href: "formations.html?m=cso" },
@@ -44,8 +44,8 @@ window.VIGIE = {
     cyber: {
       label: "Informatique et cybersécurité",
       hint: "DSI, RSSI, responsables réseau",
-      title: "Les systèmes qui protègent le port, protégés à leur tour",
-      text: "Contrôle d'accès, vidéosurveillance, réseaux d'exploitation : une panne ou une attaque peut ouvrir une brèche physique. Nous les intégrons à l'évaluation de sûreté.",
+      title: "Protéger aussi les systèmes de sûreté",
+      text: "Une panne ou une attaque sur le contrôle d'accès, la vidéosurveillance ou les réseaux d'exploitation peut ouvrir une brèche bien réelle sur le site. C'est pourquoi nous les prenons en compte dans l'évaluation de sûreté.",
       priorities: [
         { t: "Systèmes informatiques de sûreté", d: "Ce qui change aux niveaux 1, 2 et 3", href: "#explorer" },
         { t: "Cybersécurité des systèmes portuaires", d: "Formation des équipes techniques", href: "formations.html?m=cyber" },
@@ -64,58 +64,58 @@ window.VIGIE = {
 
   spots: [
     { id: "portail", x: 6, y: 47, title: "Portail et contrôle d'accès",
-      desc: "Premier filtre de l'installation : personnes, véhicules et livraisons.",
+      desc: "C'est ici que l'on contrôle les personnes, les véhicules et les livraisons qui entrent sur le site.",
       levels: [
         "Vérifier l'identité et le motif de chaque entrée, tenir les registres",
         "Contrôles plus nombreux et plus poussés, moins de points d'accès ouverts",
         "Accès limité aux personnes autorisées, fermeture des accès non essentiels"
       ],
-      service: "Procédures d'accès, registres et formation des agents de contrôle.",
+      service: "Nous rédigeons les procédures d'accès, mettons en place les registres et formons les agents de contrôle.",
       mod: "personnel" },
     { id: "zone", x: 56, y: 36, title: "Zones d'accès restreint",
-      desc: "Stockage, manutention, équipements sensibles : là où l'accès doit être justifié.",
+      desc: "Les zones de stockage, de manutention ou d'équipements sensibles, où chaque entrée doit être justifiée.",
       levels: [
         "Zones délimitées, signalées et accès contrôlés",
         "Surveillance renforcée et patrouilles plus fréquentes",
         "Interdiction temporaire d'accès, fouilles, surveillance continue"
       ],
-      service: "Délimitation des zones dans l'évaluation de sûreté et rédaction des consignes.",
+      service: "Nous délimitons ces zones lors de l'évaluation de sûreté et rédigeons les consignes qui s'y appliquent.",
       mod: "pfso" },
     { id: "quai", x: 62, y: 72, title: "Quai et interface navire-port",
-      desc: "Le point de contact entre l'installation et le navire.",
+      desc: "L'endroit où l'installation et le navire travaillent ensemble.",
       levels: [
         "Surveillance des postes à quai, du fret et des provisions de bord",
         "Déclaration de sûreté si nécessaire, contrôle renforcé du fret",
         "Suspension ou limitation des opérations avec le navire sur instruction"
       ],
-      service: "Déclarations de sûreté, coordination avec les agents de sûreté des navires, exercices conjoints.",
+      service: "Nous préparons les déclarations de sûreté, assurons la coordination avec les agents de sûreté des navires et organisons des exercices conjoints.",
       mod: "sso" },
     { id: "eau", x: 22, y: 86, title: "Plan d'eau et mouillage",
-      desc: "L'accès côté mer, souvent le moins surveillé.",
+      desc: "L'accès par la mer, souvent le moins surveillé.",
       levels: [
         "Surveillance du plan d'eau, des approches et de la zone de mouillage",
         "Patrouilles nautiques et éclairage renforcé",
         "Restrictions de navigation en coordination avec les autorités maritimes"
       ],
-      service: "Analyse de la menace côté mer et scénarios d'exercice adaptés au golfe de Guinée.",
+      service: "Nous analysons la menace côté mer et construisons des scénarios d'exercice adaptés au golfe de Guinée.",
       mod: "exercices" },
     { id: "controle", x: 16, y: 15, title: "Poste de contrôle",
-      desc: "Vidéosurveillance, alarmes et communications de sûreté.",
+      desc: "Il centralise la vidéosurveillance, les alarmes et les communications de sûreté.",
       levels: [
         "Communications de sûreté disponibles en permanence, veille vidéo",
         "Veille renforcée, liaison directe avec les navires à quai",
         "Cellule de crise activée, liaison continue avec les autorités"
       ],
-      service: "Organisation de la veille, procédures d'alerte et exercices de crise.",
+      service: "Nous organisons la veille, écrivons les procédures d'alerte et conduisons des exercices de crise.",
       mod: "exercices" },
     { id: "si", x: 32, y: 15, title: "Systèmes informatiques",
-      desc: "Réseaux, contrôle d'accès, vidéo et logiciels d'exploitation du terminal.",
+      desc: "Les réseaux, le contrôle d'accès, la vidéo et les logiciels qui font tourner le terminal.",
       levels: [
         "Comptes maîtrisés, sauvegardes, réseaux séparés, accès à distance encadrés",
         "Surveillance des journaux, accès à distance restreints au strict nécessaire",
         "Mode dégradé, isolement des systèmes, bascule sur procédures manuelles"
       ],
-      service: "Cyberrisques intégrés à l'évaluation de sûreté, politiques et réponse à incident.",
+      service: "Nous intégrons les cyberrisques à l'évaluation de sûreté, puis rédigeons les politiques de sécurité et la procédure de réponse à incident.",
       mod: "cyber" }
   ],
 
@@ -182,7 +182,7 @@ window.VIGIE = {
            "Formée agent de sûreté d'installation portuaire, auditrice QSE intégré certifiée"],
       lv: [2, 0, 1, 2, 2, 2, 0] },
     { id: "ak", mono: "AK", name: "Arnaud Kemayou", role: "Associé, cybersécurité et investigation numérique",
-      sum: "Ingénieur en cybersécurité et investigation numérique.",
+      sum: "Ingénieur, spécialiste de la sécurité des systèmes d'information et de l'investigation numérique.",
       cv: ["Responsable de la sécurité des systèmes d'information dans le secteur financier",
            "Parcours en ingénierie sécurité, DevSecOps, réseaux et cybersécurité",
            "Consultant et formateur en cybersécurité et cybercriminalité au sein d'un organisme de sûreté reconnu",
